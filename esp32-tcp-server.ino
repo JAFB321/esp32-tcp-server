@@ -1,7 +1,7 @@
 #include <WiFi.h>
 
 const char *ssid = "WIFI SSID";
-const char *password = "WIFI PASSWORD";
+const char *password = "WIFI PASS";
 
 WiFiServer server; // Server Object
 
@@ -34,24 +34,24 @@ void loop()
     Serial.println("Client connected");
 
     String msg = "";
-    while (client.connected()) {
+    while (client.connected()) { // Loop while the client is connected 
 
-      if (client.available()){
+      if (client.available()){ // When a package (char) is recieved from client
 
         char c = client.read();
-        msg += c;
+        msg += c; // Each char recieved build the message
 
-        if(c == '\r'){
+        if(c == '\r'){ // If the char is a Carriage Return the string ends  
           client.print("Recieved: "+msg);
           Serial.println("Recieved: "+msg);
           msg = "";
-          break;
+          break; 
         }
       }
 
     }
 
-    client.stop();
+    client.stop(); // Close connection
     Serial.println("Client disconnected");
   }
 }
