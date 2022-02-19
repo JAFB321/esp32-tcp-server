@@ -1,3 +1,5 @@
+// Simple TCP Client example
+
 const {Socket} = require('net');
 
 const port = '22333';
