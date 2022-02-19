@@ -3,7 +3,7 @@
 const {Socket} = require('net');
 
 const port = '22333';
-const host = '192.168.1.70';
+const host = 'SERVER IP';
 
 const client = new Socket();
 
